@@ -2,12 +2,20 @@
 .reveal {
     opacity: 0;
     transform: translateY(30px);
-    transition: all 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: opacity, transform;
 }
 
 .reveal-active {
     opacity: 1 !important;
     transform: translateY(0) !important;
+}
+
+@media (max-width: 768px) {
+    .reveal {
+        transition-duration: 0.5s;
+        transform: translateY(15px);
+    }
 }
 
 /* Staggered Reveals */
@@ -99,4 +107,36 @@ html.lenis {
 .btn-outline:hover {
     border-color: #6B4F3A;
     color: #6B4F3A;
+}
+
+/* Accessibility: Focus States */
+:focus-visible {
+    outline: 2px solid #B89B72;
+    outline-offset: 4px;
+}
+
+/* Reduced Motion & Mobile Optimization */
+@media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+        animation-delay: -1ms !important;
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        background-attachment: initial !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0s !important;
+        transition-delay: 0s !important;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Disable heavy effects on mobile */
+    .glass-nav {
+        backdrop-filter: none;
+        background-color: rgba(17, 17, 17, 0.95);
+    }
+    
+    #hero-image {
+        transform: none !important;
+        transition: none !important;
+    }
 }

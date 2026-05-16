@@ -1,8 +1,8 @@
 const components = {
     navbar: `
     <nav class="container mx-auto px-6 lg:px-12 flex justify-between items-center">
-        <a href="index.html" class="flex items-center space-x-3 hover:opacity-80 transition-opacity">
-            <img src="assets/images/logo.png" alt="LJP Studio Logo" class="h-10 w-auto">
+        <a href="index.html" class="flex items-center space-x-3 hover:opacity-80 transition-opacity" aria-label="LJP Studio - Home">
+            <img src="assets/images/logo.png" alt="LJP Studio Logo" width="40" height="40" class="h-10 w-auto">
             <span class="text-2xl font-serif tracking-tighter">LJP <span class="text-walnut">STUDIO</span></span>
         </a>
         <ul class="hidden md:flex space-x-10 text-[10px] uppercase tracking-[0.2em] font-medium text-text-secondary">
@@ -12,14 +12,14 @@ const components = {
             <li><a href="portfolio.html" class="nav-link hover:text-text-primary transition-colors">Portfolio</a></li>
             <li><a href="contact.html" class="nav-link hover:text-text-primary transition-colors">Contact</a></li>
         </ul>
-        <button id="mobile-menu-btn" class="md:hidden flex flex-col space-y-1.5 focus:outline-none group">
+        <button id="mobile-menu-btn" class="md:hidden flex flex-col space-y-1.5 focus:outline-none group" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="mobile-menu">
             <span class="w-6 h-0.5 bg-text-primary transition-all duration-300"></span>
             <span class="w-6 h-0.5 bg-text-primary transition-all duration-300"></span>
             <span class="w-4 h-0.5 bg-text-primary self-end transition-all duration-300"></span>
         </button>
     </nav>
-    <div id="mobile-menu" class="fixed top-0 left-0 w-screen h-screen bg-primary z-[100] flex flex-col items-center justify-center space-y-8 text-2xl font-serif translate-x-full transition-transform duration-700 md:hidden">
-        <button id="close-menu-btn" class="absolute top-8 right-8 text-sm uppercase tracking-widest text-text-secondary">Close</button>
+    <div id="mobile-menu" class="fixed top-0 left-0 w-screen h-screen bg-primary z-[100] flex flex-col items-center justify-center space-y-8 text-2xl font-serif translate-x-full transition-transform duration-700 md:hidden" aria-hidden="true" role="dialog" aria-modal="true">
+        <button id="close-menu-btn" class="absolute top-8 right-8 text-sm uppercase tracking-widest text-text-secondary hover:text-text-primary transition-colors focus:outline-none" aria-label="Close Navigation Menu">Close</button>
         <a href="index.html" class="hover:text-walnut transition-colors">Home</a>
         <a href="about.html" class="hover:text-walnut transition-colors">About</a>
         <a href="services.html" class="hover:text-walnut transition-colors">Services</a>
@@ -31,8 +31,8 @@ const components = {
     <div class="container mx-auto px-6 lg:px-12">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-32">
             <div class="md:col-span-2">
-                <a href="index.html" class="flex items-center space-x-3 mb-8 hover:opacity-80 transition-opacity">
-                    <img src="assets/images/logo.png" alt="LJP Studio Logo" class="h-8 w-auto">
+                <a href="index.html" class="flex items-center space-x-3 mb-8 hover:opacity-80 transition-opacity" aria-label="LJP Studio - Home">
+                    <img src="assets/images/logo.png" alt="LJP Studio Logo" width="32" height="32" class="h-8 w-auto">
                     <span class="text-3xl font-serif tracking-tighter">LJP STUDIO</span>
                 </a>
                 <p class="text-text-secondary max-w-sm leading-relaxed">
@@ -93,19 +93,33 @@ document.addEventListener('DOMContentLoaded', () => {
         if (mobileMenuBtn && mobileMenu) {
             mobileMenuBtn.addEventListener('click', () => {
                 mobileMenu.classList.remove('translate-x-full');
+                mobileMenu.setAttribute('aria-hidden', 'false');
+                mobileMenuBtn.setAttribute('aria-expanded', 'true');
                 document.body.style.overflow = 'hidden';
+                // Focus the close button for accessibility
+                setTimeout(() => closeMenuBtn.focus(), 100);
             });
             closeMenuBtn.addEventListener('click', () => {
                 mobileMenu.classList.add('translate-x-full');
+                mobileMenu.setAttribute('aria-hidden', 'true');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
                 document.body.style.overflow = '';
+                mobileMenuBtn.focus();
             });
             
             // Close menu on link click
             mobileMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
                     mobileMenu.classList.add('translate-x-full');
+                    mobileMenu.setAttribute('aria-hidden', 'true');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
                     document.body.style.overflow = '';
                 });
+            });
+
+            // Trap focus in mobile menu
+            mobileMenu.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeMenuBtn.click();
             });
         }
     }
