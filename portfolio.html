@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Ljp Custom Furniture Jakarta</title>
+    <meta name="description" content="View our portfolio of premium custom furniture and interior design projects in Jakarta. We craft luxury kitchen sets, bedroom suites, and commercial spaces.">
+    <link rel="canonical" href="https://www.ljpstudio.com/portfolio.html">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Portfolio | Ljp Custom Furniture">
+    <meta property="og:description" content="View our portfolio of premium custom furniture and interior design projects in Jakarta.">
+    <meta property="og:url" content="https://www.ljpstudio.com/portfolio.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1556912170-453211519d5e?auto=format&fit=crop&q=80&w=1200">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.ljpstudio.com/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Portfolio",
+        "item": "https://www.ljpstudio.com/portfolio.html"
+      }]
+    }
+    </script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#111111',
+                        'secondary': '#141414',
+                        'surface': '#1E1E1E',
+                        'walnut': '#6B4F3A',
+                        'beige': '#D6C2A8',
+                        'gold': '#B89B72',
+                        'text-primary': '#F5F1EA',
+                        'text-secondary': '#A8A29E',
+                    },
+                    fontFamily: {
+                        'serif': ['"Cormorant Garamond"', 'serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 1s ease-out forwards',
+                        'fade-in': 'fadeIn 1.5s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.13/dist/lenis.css">
+
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="assets/css/shared.css">
+
+    <style>
+        h1, h2, h3, h4 {
+            font-family: "Cormorant Garamond", serif;
+        }
+        
+        /* Elegant Filter Bar */
+        .filter-container {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .filter-container::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .filter-btn {
+            position: relative;
+            color: #A8A29E;
+            white-space: nowrap;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .filter-btn:hover {
+            color: #F5F1EA;
+        }
+        
+        .filter-btn.active {
+            color: #B89B72;
+        }
+
+        .filter-btn::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            width: 0;
+            height: 1px;
+            background-color: #B89B72;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateX(-50%);
+        }
+
+        .filter-btn.active::after {
+            width: 100%;
+        }
+
+        /* Glassmorphism Sticky */
+        .sticky-filter {
+            background: rgba(17, 17, 17, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .portfolio-item.hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body class="bg-primary text-text-primary font-sans antialiased selection:bg-walnut selection:text-white overflow-x-hidden">
+
+    <!-- Navbar -->
+    <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 py-6">
+        <!-- Injected via components.js -->
+    </header>
+
+    <main>
+        <section class="relative h-[60vh] w-full flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&q=80&w=2000" alt="Selected Works Portfolio" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-primary/60"></div>
+            </div>
+            <div class="container mx-auto px-6 lg:px-12 relative z-10 text-center">
+                <span class="inline-block text-[10px] uppercase tracking-[0.4em] text-walnut mb-6 animate-fade-in">Selected Works</span>
+                <h1 class="text-5xl md:text-7xl font-serif mb-12 animate-fade-in-up">Our Portfolio</h1>
+            </div>
+        </section>
+        <!-- Portfolio Filter Section -->
+        <div class="sticky top-20 md:top-24 z-40 sticky-filter border-b border-white/5 reveal">
+            <div class="container mx-auto px-6 lg:px-12">
+                <div class="filter-container flex items-center justify-start md:justify-center space-x-8 md:space-x-12 py-6 overflow-x-auto">
+                    <button class="filter-btn active text-[10px] uppercase tracking-[0.4em]" data-filter="all">All <span class="ml-1 opacity-40">6</span></button>
+                    <button class="filter-btn text-[10px] uppercase tracking-[0.4em]" data-filter="kitchen">Kitchen <span class="ml-1 opacity-40">2</span></button>
+                    <button class="filter-btn text-[10px] uppercase tracking-[0.4em]" data-filter="bedroom">Bedroom <span class="ml-1 opacity-40">1</span></button>
+                    <button class="filter-btn text-[10px] uppercase tracking-[0.4em]" data-filter="living">Living Room <span class="ml-1 opacity-40">1</span></button>
+                    <button class="filter-btn text-[10px] uppercase tracking-[0.4em]" data-filter="office">Office <span class="ml-1 opacity-40">1</span></button>
+                    <button class="filter-btn text-[10px] uppercase tracking-[0.4em]" data-filter="commercial">Commercial <span class="ml-1 opacity-40">1</span></button>
+                </div>
+            </div>
+        </div>
+
+        <section class="py-20 lg:py-32">
+            <div class="container mx-auto px-6 lg:px-12">
+                <!-- Portfolio Grid -->
+                <div id="portfolio-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Item 1 -->
+                    <div class="portfolio-item px-6 reveal" data-category="kitchen">
+                        <div class="relative overflow-hidden group aspect-[3/4] md:aspect-[4/5] transition-all duration-700">
+                            <img src="/assets/img/Oakwood Minimalist Kichen Set.webp" alt="Oakwood Minimalist Kitchen Set Interior in Jakarta" loading="lazy" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 text-left">
+                                <span class="text-[10px] uppercase tracking-[0.2em] text-walnut mb-2">Kitchen Set</span>
+                                <h3 class="text-xl">Oakwood Minimalist</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="portfolio-item px-6 reveal" data-category="living" style="transition-delay: 100ms">
+                        <div class="relative overflow-hidden group aspect-[3/4] md:aspect-[4/5] transition-all duration-700">
+                            <img src="/assets/img/Living Room.jpg" alt="Midnight Matte Living Room Custom Furniture" loading="lazy" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 text-left">
+                                <span class="text-[10px] uppercase tracking-[0.2em] text-walnut mb-2">Living Room</span>
+                                <h3 class="text-xl">Midnight Matte Living</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="portfolio-item px-6 reveal" data-category="office" style="transition-delay: 200ms">
+                        <div class="relative overflow-hidden group aspect-[3/4] md:aspect-[4/5] transition-all duration-700">
+                            <img src="/assets/img/Executive Timber Suite.jpg" alt="Executive Timber Suite Corporate Office Interior" loading="lazy" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 text-left">
+                                <span class="text-[10px] uppercase tracking-[0.2em] text-walnut mb-2">Office</span>
+                                <h3 class="text-xl">Executive Timber Suite</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="portfolio-item px-6 reveal" data-category="commercial">
+                        <div class="relative overflow-hidden group aspect-[3/4] md:aspect-[4/5] transition-all duration-700">
+                            <img src="/assets/img/Cafe Interior.jpg" alt="Cafe Interior" loading="lazy" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 text-left">
+                                <span class="text-[10px] uppercase tracking-[0.2em] text-walnut mb-2">Commercial</span>
+                                <h3 class="text-xl">Cafe Interior</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="portfolio-item px-6 reveal" data-category="bedroom" style="transition-delay: 100ms">
+                        <div class="relative overflow-hidden group aspect-[3/4] md:aspect-[4/5] transition-all duration-700">
+                            <img src="/assets/img/Bedroom Suite Portfolio.jpg" alt="Bedroom Suite Luxury Minimalist" loading="lazy" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 text-left">
+                                <span class="text-[10px] uppercase tracking-[0.2em] text-walnut mb-2">Bedroom</span>
+                                <h3 class="text-xl">Bedroom Suite</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 6 -->
+                    <div class="portfolio-item px-6 reveal" data-category="kitchen" style="transition-delay: 200ms">
+                        <div class="relative overflow-hidden group aspect-[3/4] md:aspect-[4/5] transition-all duration-700">
+                            <img src="/assets/img/Dinner Room.jpg" alt="Dinner Room Luxury" loading="lazy" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 text-left">
+                                <span class="text-[10px] uppercase tracking-[0.2em] text-walnut mb-2">Dining Room</span>
+                                <h3 class="text-xl">Dinner Room Luxury</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary pt-32 pb-12 border-t border-white/5">
+        <!-- Injected via components.js -->
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/components.js"></script>
+    <script>
+        // Lenis Smooth Scroll
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            smoothWheel: true
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+
+        requestAnimationFrame(raf);
+
+        // Portfolio Filtering Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active state
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                portfolioItems.forEach(item => {
+                    const category = item.getAttribute('data-category');
+                    
+                    if (filter === 'all' || filter === category) {
+                        item.classList.remove('hidden');
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                        }, 10);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            item.classList.add('hidden');
+                        }, 500);
+                    }
+                });
+            });
+        });
+
+        // Intersection Observer for Reveal
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal-active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
